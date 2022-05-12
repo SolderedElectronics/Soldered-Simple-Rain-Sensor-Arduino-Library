@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['readdata_0',['readData',['../class_easy_c.html#a9a3d39be50b348768bc4b5dea3dae01a',1,'EasyC']]],
-  ['readregister_1',['readRegister',['../class_easy_c.html#a45bd6c915c1fa0998e273f69ee2d2376',1,'EasyC']]]
+  ['getresistance_0',['getResistance',['../class_simple_rain_sensor.html#a51aa14a38a3b302c32c5cc7c17c0ea21',1,'SimpleRainSensor']]],
+  ['getvalue_1',['getValue',['../class_simple_rain_sensor.html#ae9e0966c624841665047772a131935a1',1,'SimpleRainSensor']]]
 ];

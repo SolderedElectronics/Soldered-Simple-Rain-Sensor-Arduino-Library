@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['easyc_0',['EasyC',['../class_easy_c.html#a2ea672a225a32eab52c2b20733fd26bd',1,'EasyC']]]
+  ['calibrate_0',['calibrate',['../class_simple_rain_sensor.html#af87dcfd5d1ad955b61ccdabace82b368',1,'SimpleRainSensor']]]
 ];

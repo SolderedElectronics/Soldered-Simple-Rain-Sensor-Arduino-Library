@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['defaultaddress_0',['defaultAddress',['../class_easy_c.html#a9052ae674b3553bbb19283278299f395',1,'EasyC']]]
+  ['calibrate_0',['calibrate',['../class_simple_rain_sensor.html#af87dcfd5d1ad955b61ccdabace82b368',1,'SimpleRainSensor']]]
 ];
