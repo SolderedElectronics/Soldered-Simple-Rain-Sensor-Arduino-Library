@@ -4,7 +4,6 @@
 ❌ | Checkout dev branch and make changes here only.
 ❌ | Rename src/Generic-easyC-SOLDERED.h/.cpp to src/[sensor name]-SOLDERED.h/.cpp
 ❌ | Change #include "Generic-easyC-SOLDERED.h" to #include "[sensor name]-SOLDERED.h" in [sensor name]-SOLDERED.cpp
-❌ | Make sure you've renamed header guard to something unique too.
 ❌ | Change Sensor class in the same file to [sensor name] and all the constructors too
 ❌ | Write firmware for Attiny if necessary
 ❌ | Write an API wrapper (add native contructor and initializeNative functions if native is supported)
