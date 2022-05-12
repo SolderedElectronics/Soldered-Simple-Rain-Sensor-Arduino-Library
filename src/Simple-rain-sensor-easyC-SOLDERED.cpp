@@ -98,7 +98,7 @@ void SimpleRainSensor::setADCWidth(uint8_t _ADC_width)
  */
 bool SimpleRainSensor::isRaining()
 {
-    if(getResistance() < high * 0.95 )
+    if (getResistance() < high * 0.95)
     {
         return 1;
     }
