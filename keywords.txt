@@ -1,16 +1,20 @@
 ##################################################
-# Syntax Coloring Map For Obstacle-Sensor-SOLDERED
+# Syntax Coloring Map simple-rain-sensor-soldered
 ##################################################
 
 ##################################################
-# Datatypes (KEYWORD1)
+# Datatypes 		(KEYWORD1)
 ##################################################
-
+SimpleRainSensor		KEYWORD1
 ##################################################
 # Methods and Functions (KEYWORD2)
 ##################################################
 
-begin	KEYWORD2
+begin	    		KEYWORD2
+getValue		KEYWORD2
+getResistance		KEYWORD2
+calibrate		KEYWORD2
+isRaining		KEYWORD2
 
 ##################################################
 # Constants (LITERAL1)
