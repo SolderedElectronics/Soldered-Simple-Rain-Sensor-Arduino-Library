@@ -26,6 +26,7 @@ class SimpleRainSensor : public EasyC
     void calibrate(int);
     void setADCWidth(uint8_t);
     bool isRaining();
+    void setThreshold(byte);
 
   protected:
     void initializeNative();
@@ -34,7 +35,8 @@ class SimpleRainSensor : public EasyC
     float a, b, high = 1023;
     int pin;
     uint16_t ADC_width = 1023;
-    char raw[2];
+    byte data[2], threshold;
+    uint16_t resistance;
 };
 
 #endif
