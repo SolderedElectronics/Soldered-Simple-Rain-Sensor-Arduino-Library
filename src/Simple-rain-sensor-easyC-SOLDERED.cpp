@@ -47,8 +47,8 @@ uint32_t SimpleRainSensor::getValue()
 {
     if (!native)
     {
-        Wire.beginTransmission(0x30);
-        Wire.requestFrom(0x30, 2);
+        Wire.beginTransmission(address);
+        Wire.requestFrom(address, 2);
 
         if (Wire.available())
         {
