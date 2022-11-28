@@ -47,8 +47,8 @@ uint32_t SimpleRainSensor::getValue()
 {
     if (!native)
     {
-        Wire.beginTransmission(0x30);
-        Wire.requestFrom(0x30, 2);
+        Wire.beginTransmission(address);
+        Wire.requestFrom(address, 2);
 
         if (Wire.available())
         {
@@ -116,12 +116,12 @@ bool SimpleRainSensor::isRaining()
 
 /**
  * @brief       Function to set threshold value to turn on the LED
- * 
+ *
  * @param       byte _threshold value in %
-*/
+ */
 void SimpleRainSensor::setThreshold(byte _threshold)
 {
-    if(_threshold > 100)
+    if (_threshold > 100)
     {
         return;
     }
