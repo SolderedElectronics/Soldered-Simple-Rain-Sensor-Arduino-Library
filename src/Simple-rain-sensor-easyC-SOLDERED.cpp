@@ -47,8 +47,17 @@ uint32_t SimpleRainSensor::getValue()
 {
     if (!native)
     {
-        readRegister(ANALOG_READ_REG, raw, 2 * sizeof(uint8_t));
-        return raw[0] | (raw[1]) << 8;
+        Wire.beginTransmission(0x30);
+        Wire.requestFrom(0x30, 2);
+
+        if (Wire.available())
+        {
+            Wire.readBytes(data, 2);
+        }
+        Wire.endTransmission();
+
+        resistance = *(uint16_t *)data;
+        return resistance;
     }
     return analogRead(pin);
 }
@@ -72,9 +81,6 @@ float SimpleRainSensor::getResistance()
  * @brief       Function for calibrating sensor
  *
  * @param _high Calibration value for sensor in air
- *
- * @param _low Calibration value for sensor fully in water
- *
  */
 void SimpleRainSensor::calibrate(int _high)
 {
@@ -92,7 +98,7 @@ void SimpleRainSensor::setADCWidth(uint8_t _ADC_width)
 }
 
 /**
- * @brief       Function for setting ADC bit width of microcontroller
+ * @brief       Function for looking if it's raining
  *
  * @return      1 if it is raining, 0 if not
  */
@@ -106,4 +112,21 @@ bool SimpleRainSensor::isRaining()
     {
         return 0;
     }
+}
+
+/**
+ * @brief       Function to set threshold value to turn on the LED
+ * 
+ * @param       byte _threshold value in %
+*/
+void SimpleRainSensor::setThreshold(byte _threshold)
+{
+    if(_threshold > 100)
+    {
+        return;
+    }
+    threshold = _threshold;
+    Wire.beginTransmission(address);
+    Wire.write(threshold);
+    Wire.endTransmission();
 }

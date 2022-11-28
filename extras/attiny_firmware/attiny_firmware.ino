@@ -1,21 +1,23 @@
 /**
  **************************************************
- *
- * @file        attiny_firmware for Simple rain sensor 
- *              sensor with easyC
- * @brief       This sensor sends rain intensity
- *              measured with resistive water senosr 
- *              on breakout board
- *
- *
- *
- * @authors     Goran Juric for Soldered.com
+
+   @file        attiny_firmware for Simple fire
+                sensor with easyC
+   @brief       This sensor sends light intensity
+                measured with IR light sensor on breakout board
+
+
+
+   @authors     Goran Juric, Karlo Leksic for Soldered.com
  ***************************************************/
 
 #include "easyC.h"
 #include <Wire.h>
 
 int addr = DEFAULT_ADDRESS;
+
+volatile uint16_t readValue;
+byte threshold;
 
 void setup()
 {
@@ -25,35 +27,36 @@ void setup()
     Wire.begin(addr);
     Wire.onReceive(receiveEvent);
     Wire.onRequest(requestEvent);
-    pinMode(PA4,OUTPUT);
-    digitalWrite(PA4,HIGH);
+    pinMode(PA4, OUTPUT);
+    digitalWrite(PA4, HIGH);
+
+    Serial.begin(115200);
 }
 
 void loop()
 {
+    readValue = analogRead(PA5);
+    if (readValue > (threshold * 0.01 * 1024))
+    {
+        digitalWrite(PA4, HIGH);
+    }
+    else
+    {
+        digitalWrite(PA4, LOW);
+    }
+    delay(20);
 }
-
-char lastEvent;
 
 void receiveEvent(int howMany)
 {
-    while (1 < Wire.available())
+    if (Wire.available())
     {
-        char c = Wire.read();
+        threshold = Wire.read();
     }
-
-    lastEvent = Wire.read();
 }
 
 void requestEvent()
 {
-    int c = 0;
-    char a[2];
-    if (lastEvent==0)
-    {
-      c = analogRead(PA5);
-      a[1] = c >> 8;
-      a[0] = c & 0xFF;
-      Wire.write(a, 2);
-    }
+    byte *valueForSend = (byte *)&readValue;
+    Wire.write(valueForSend, 2);
 }
