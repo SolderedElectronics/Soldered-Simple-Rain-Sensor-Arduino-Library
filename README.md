@@ -19,7 +19,7 @@ You can find hardware design for this board in *Simple rain sensor board with ea
 
 ### Documentation
 
-Access Arduino library documentation [here](https://solderedelectronics.github.io/Soldered-Simple-Rain-Sensor-Arduino-library/).
+Access Arduino library documentation [here](https://solderedelectronics.github.io/Soldered-Simple-Rain-Sensor-Arduino-Library/).
 
 - Tutorial for using the Simple rain sensor board
 - Installing an Arduino library
