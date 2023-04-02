@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Simple rain sensor easyC Library", "index.html", [
-    [ "Simple rain sensor with easyC Arduino library", "index.html", null ],
+    [ "Simple rain sensor board Arduino library", "index.html", "index" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
