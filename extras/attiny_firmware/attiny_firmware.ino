@@ -17,7 +17,7 @@
 int addr = DEFAULT_ADDRESS; // 0x30
 
 volatile uint16_t readValue; // Variable for reading an analog value
-byte threshold;              // Variable for setting the threshold
+uint16_t threshold;          // Variable for setting the threshold
 
 // Define pins for the sensor and LED
 #define LED_PIN    PA4
@@ -45,7 +45,7 @@ void loop()
     readValue = analogRead(SENSOR_PIN);
 
     // Turn on the LED if the read value is greater than the threshold value
-    if (readValue > (threshold * 0.01 * 1024))
+    if (readValue > threshold)
     {
         digitalWrite(LED_PIN, HIGH);
     }
@@ -62,10 +62,19 @@ void loop()
 void receiveEvent(int howMany)
 {
     // The breakout only receives a threshold value so read it and store
-    if (Wire.available())
+
+    // Array for the raw threshold in bytes
+    uint8_t rawThresholdBytes[2];
+
+    // If data is incoming
+    if (Wire.available() == 2)
     {
-        threshold = Wire.read();
+        // Read 2 bytes which represents the raw threshold value
+        Wire.readBytes(rawThresholdBytes, 2);
     }
+
+    // Converts this value into uint16_t
+    threshold = *(uint16_t *)rawThresholdBytes;
 }
 
 // This function will be executed when Dasduino requests data from the breakout

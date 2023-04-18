@@ -12,9 +12,13 @@ SimpleRainSensor	KEYWORD1
 
 begin	KEYWORD2
 getValue	KEYWORD2
+getRawValue	KEYWORD2
+setADCWidth	KEYWORD2
 getResistance	KEYWORD2
 calibrate	KEYWORD2
 isRaining	KEYWORD2
+setThreshold	KEYWORD2
+setRawThreshold	KEYWORD2
 
 ##################################################
 # Constants (LITERAL1)
