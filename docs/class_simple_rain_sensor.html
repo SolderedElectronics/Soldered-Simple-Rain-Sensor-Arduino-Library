@@ -114,9 +114,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa77df5ffde9620394a77fe25762237e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#aa77df5ffde9620394a77fe25762237e9">SimpleRainSensor</a> (int)</td></tr>
 <tr class="memdesc:aa77df5ffde9620394a77fe25762237e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensor specific native constructor.  <br /></td></tr>
 <tr class="separator:aa77df5ffde9620394a77fe25762237e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9e0966c624841665047772a131935a1"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#ae9e0966c624841665047772a131935a1">getValue</a> (void)</td></tr>
-<tr class="memdesc:ae9e0966c624841665047772a131935a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for reading value of soil sensor.  <br /></td></tr>
-<tr class="separator:ae9e0966c624841665047772a131935a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa842d5db26b1966692e290fc573c30f0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#aa842d5db26b1966692e290fc573c30f0">getValue</a> (void)</td></tr>
+<tr class="memdesc:aa842d5db26b1966692e290fc573c30f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for reading value of soil sensor in percent.  <br /></td></tr>
+<tr class="separator:aa842d5db26b1966692e290fc573c30f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120e86c30c701a551763a4d01b032540"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#a120e86c30c701a551763a4d01b032540">getRawValue</a> (void)</td></tr>
+<tr class="memdesc:a120e86c30c701a551763a4d01b032540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for reading raw value of soil sensor (0 - 1023)  <br /></td></tr>
+<tr class="separator:a120e86c30c701a551763a4d01b032540"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51aa14a38a3b302c32c5cc7c17c0ea21"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#a51aa14a38a3b302c32c5cc7c17c0ea21">getResistance</a> (void)</td></tr>
 <tr class="memdesc:a51aa14a38a3b302c32c5cc7c17c0ea21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for calculating resistance of soil sensor.  <br /></td></tr>
 <tr class="separator:a51aa14a38a3b302c32c5cc7c17c0ea21"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,9 +132,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2c97a8ac80c6da1fe829d7d95fd0b558"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#a2c97a8ac80c6da1fe829d7d95fd0b558">isRaining</a> ()</td></tr>
 <tr class="memdesc:a2c97a8ac80c6da1fe829d7d95fd0b558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for looking if it's raining.  <br /></td></tr>
 <tr class="separator:a2c97a8ac80c6da1fe829d7d95fd0b558"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8cc1018b7ad215efc60f1735034eba1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#ac8cc1018b7ad215efc60f1735034eba1">setThreshold</a> (byte)</td></tr>
-<tr class="memdesc:ac8cc1018b7ad215efc60f1735034eba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set threshold value to turn on the LED.  <br /></td></tr>
-<tr class="separator:ac8cc1018b7ad215efc60f1735034eba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5085e0b686ed088441205628a4d32658"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#a5085e0b686ed088441205628a4d32658">setThreshold</a> (float)</td></tr>
+<tr class="memdesc:a5085e0b686ed088441205628a4d32658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set threshold value to turn on the LED.  <br /></td></tr>
+<tr class="separator:a5085e0b686ed088441205628a4d32658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cded76f817062e8c5cfa23c0d9f7432"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#a0cded76f817062e8c5cfa23c0d9f7432">setRawThreshold</a> (uint16_t)</td></tr>
+<tr class="memdesc:a0cded76f817062e8c5cfa23c0d9f7432"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set raw threshold value to turn on the LED.  <br /></td></tr>
+<tr class="separator:a0cded76f817062e8c5cfa23c0d9f7432"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_easy_c"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_easy_c')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_easy_c.html">EasyC</a></td></tr>
 <tr class="memitem:a2ea672a225a32eab52c2b20733fd26bd inherit pub_methods_class_easy_c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_easy_c.html#a2ea672a225a32eab52c2b20733fd26bd">EasyC</a> ()</td></tr>
 <tr class="memdesc:a2ea672a225a32eab52c2b20733fd26bd inherit pub_methods_class_easy_c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main constructor for easyC version.  <br /></td></tr>
@@ -177,8 +183,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ac8430fbf99a50e78e8f84f1049b93c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b7911305a3fcd369e92f4f4831365a4"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#a1b7911305a3fcd369e92f4f4831365a4">data</a> [2]</td></tr>
 <tr class="separator:a1b7911305a3fcd369e92f4f4831365a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a591f898c3af3e8e44c44b99d53710f91"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#a591f898c3af3e8e44c44b99d53710f91">threshold</a></td></tr>
-<tr class="separator:a591f898c3af3e8e44c44b99d53710f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64476b2f4c6bc8220a873a35c8edf161"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#a64476b2f4c6bc8220a873a35c8edf161">threshold</a></td></tr>
+<tr class="separator:a64476b2f4c6bc8220a873a35c8edf161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e5208935aeec341c0332075c55aae45"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_rain_sensor.html#a2e5208935aeec341c0332075c55aae45">resistance</a></td></tr>
 <tr class="separator:a2e5208935aeec341c0332075c55aae45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -269,6 +275,27 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a120e86c30c701a551763a4d01b032540" name="a120e86c30c701a551763a4d01b032540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a120e86c30c701a551763a4d01b032540">&#9670;&#160;</a></span>getRawValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t SimpleRainSensor::getRawValue </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function for reading raw value of soil sensor (0 - 1023) </p>
+<dl class="section return"><dt>Returns</dt><dd>Raw value of soil sensor (0 - 1023) </dd></dl>
+
+</div>
+</div>
 <a id="a51aa14a38a3b302c32c5cc7c17c0ea21" name="a51aa14a38a3b302c32c5cc7c17c0ea21"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a51aa14a38a3b302c32c5cc7c17c0ea21">&#9670;&#160;</a></span>getResistance()</h2>
 
@@ -290,14 +317,14 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ae9e0966c624841665047772a131935a1" name="ae9e0966c624841665047772a131935a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9e0966c624841665047772a131935a1">&#9670;&#160;</a></span>getValue()</h2>
+<a id="aa842d5db26b1966692e290fc573c30f0" name="aa842d5db26b1966692e290fc573c30f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa842d5db26b1966692e290fc573c30f0">&#9670;&#160;</a></span>getValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t SimpleRainSensor::getValue </td>
+          <td class="memname">float SimpleRainSensor::getValue </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -306,8 +333,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function for reading value of soil sensor. </p>
-<dl class="section return"><dt>Returns</dt><dd>value of soil sensor </dd></dl>
+<p>Function for reading value of soil sensor in percent. </p>
+<dl class="section return"><dt>Returns</dt><dd>Value of soil sensor in percent (0 - 100) </dd></dl>
 
 </div>
 </div>
@@ -386,8 +413,34 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ac8cc1018b7ad215efc60f1735034eba1" name="ac8cc1018b7ad215efc60f1735034eba1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8cc1018b7ad215efc60f1735034eba1">&#9670;&#160;</a></span>setThreshold()</h2>
+<a id="a0cded76f817062e8c5cfa23c0d9f7432" name="a0cded76f817062e8c5cfa23c0d9f7432"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cded76f817062e8c5cfa23c0d9f7432">&#9670;&#160;</a></span>setRawThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimpleRainSensor::setRawThreshold </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>_threshold</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to set raw threshold value to turn on the LED. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uint16_t</td><td>_threshold from 0 to 1023 (raw) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5085e0b686ed088441205628a4d32658" name="a5085e0b686ed088441205628a4d32658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5085e0b686ed088441205628a4d32658">&#9670;&#160;</a></span>setThreshold()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -395,7 +448,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void SimpleRainSensor::setThreshold </td>
           <td>(</td>
-          <td class="paramtype">byte&#160;</td>
+          <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>_threshold</em></td><td>)</td>
           <td></td>
         </tr>
@@ -567,8 +620,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a591f898c3af3e8e44c44b99d53710f91" name="a591f898c3af3e8e44c44b99d53710f91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a591f898c3af3e8e44c44b99d53710f91">&#9670;&#160;</a></span>threshold</h2>
+<a id="a64476b2f4c6bc8220a873a35c8edf161" name="a64476b2f4c6bc8220a873a35c8edf161"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64476b2f4c6bc8220a873a35c8edf161">&#9670;&#160;</a></span>threshold</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -577,7 +630,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">byte SimpleRainSensor::threshold</td>
+          <td class="memname">float SimpleRainSensor::threshold</td>
         </tr>
       </table>
   </td>
@@ -601,7 +654,7 @@ Additional Inherited Members</h2></td></tr>
     <ul>
         <li class="navelem"><a class="el" href="class_simple_rain_sensor.html">SimpleRainSensor</a></li>
         <li class="footer">
-            Generated on Sun Apr 2 2023 10:54:10 for Simple rain sensor easyC Library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Apr 18 2023 06:44:22 for Simple rain sensor easyC Library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.6.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
