@@ -6,7 +6,7 @@
  *
  *
  * @copyright   GNU General Public License v3.0
- * @authors     Goran Juric @ soldered.com
+ * @authors     Goran Juric, Karlo Leksic @ soldered.com
  ***************************************************/
 
 
@@ -39,24 +39,32 @@ void SimpleRainSensor::initializeNative()
 }
 
 /**
- * @brief       Function for reading value of soil sensor
+ * @brief       Function for reading value of soil sensor in percent
  *
- * @return      value of soil sensor
+ * @return      Value of soil sensor in percent (0 - 100)
  */
-uint32_t SimpleRainSensor::getValue()
+float SimpleRainSensor::getValue()
+{
+    return (getRawValue() / float(1023) * 100);
+}
+
+/**
+ * @brief       Function for reading raw value of soil sensor (0 - 1023)
+ *
+ * @return      Raw value of soil sensor (0 - 1023)
+ */
+uint16_t SimpleRainSensor::getRawValue()
 {
     if (!native)
     {
-        Wire.beginTransmission(address);
-        Wire.requestFrom(address, 2);
+        // Read 2 bytes of raw  data
+        char data[2];
+        readData(data, 2);
 
-        if (Wire.available())
-        {
-            Wire.readBytes(data, 2);
-        }
-        Wire.endTransmission();
-
+        // Convert it to uint16_t
         resistance = *(uint16_t *)data;
+
+        // Return converted value
         return resistance;
     }
     return analogRead(pin);
@@ -69,7 +77,7 @@ uint32_t SimpleRainSensor::getValue()
  */
 float SimpleRainSensor::getResistance()
 {
-    uint16_t temp = getValue();
+    uint16_t temp = getRawValue();
     if (temp != 0)
     {
         return 10000 * (temp / (float)(ADC_width - temp));
@@ -104,7 +112,7 @@ void SimpleRainSensor::setADCWidth(uint8_t _ADC_width)
  */
 bool SimpleRainSensor::isRaining()
 {
-    if (getResistance() < high * 0.95)
+    if (getRawValue() < high * 0.95)
     {
         return 1;
     }
@@ -119,14 +127,36 @@ bool SimpleRainSensor::isRaining()
  *
  * @param       byte _threshold value in %
  */
-void SimpleRainSensor::setThreshold(byte _threshold)
+void SimpleRainSensor::setThreshold(float _threshold)
 {
-    if (_threshold > 100)
+    // Check if the threshold is the proper value
+    if (_threshold < 0 || _threshold > 100)
     {
         return;
     }
-    threshold = _threshold;
-    Wire.beginTransmission(address);
-    Wire.write(threshold);
-    Wire.endTransmission();
+
+    // Convert percentage threshold to raw value and send it
+    uint16_t rawThreshold = _threshold * 0.01 * 1024;
+    setRawThreshold(rawThreshold);
+}
+
+
+/**
+ * @brief       Function to set raw threshold value to turn on the LED
+ *
+ * @param       uint16_t _threshold from 0 to 1023 (raw)
+ */
+void SimpleRainSensor::setRawThreshold(uint16_t _threshold)
+{
+    // Check if the threshold is the proper value
+    if (_threshold < 0 || _threshold > 1023)
+    {
+        return;
+    }
+
+    // Convert raw threshold value into 2 bytes for sending
+    uint8_t *rawThreshold = (uint8_t *)&_threshold;
+
+    // Send raw threshold
+    sendData(rawThreshold, 2);
 }
