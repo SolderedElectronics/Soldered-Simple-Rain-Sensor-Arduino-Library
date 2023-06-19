@@ -10,7 +10,7 @@
  *              -Connect the rain sensor module to the breakout as well
  *              -Open serial monitor at 115200 baud!
  *
- *              Simple rain sensor: solde.red/333043
+ *              Simple Rain Sensor with easyC: solde.red/333043
  *              Dasduino Core: www.solde.red/333037
  *              Dasduino Connect: www.solde.red/333034
  *              Dasduino ConnectPlus: www.solde.red/333033
