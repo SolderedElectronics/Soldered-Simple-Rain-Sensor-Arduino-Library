@@ -53,23 +53,29 @@ void setup()
     sensor.calibrate(CALIBRATION_VALUE_ON_DRY);
 
     // Set threshold for LED on the breakout by raw value
-    //sensor.setRawThreshold(250); // or percentage:
-    sensor.setThreshold(98.1); // 25.1%
+    // sensor.setRawThreshold(400); // or percentage:
+    sensor.setThreshold(90); // 25.1%
+    // If the sensor reads a value smaller than this, it means rain is detected
 
-    // If you want the LED to turn OFF when the threshold is reached, use:
-    sensor.invertLED(false);
+    // If you want the LED to turn OFF when rain is detected, use:
+    // sensor.invertLED(true);
+    // Usually, it's ON while rain is detected
 }
 
 void loop()
 {
-    Serial.print("Value of sensor: ");
+    Serial.print("Rain reading from the sensor: ");
     Serial.print(sensor.getValue()); // Prints percent value of rain sensor
-    Serial.print("% ");
+    Serial.print("%, and the raw value: ");
     Serial.println(sensor.getRawValue()); // Prints raw value of rain sensor
 
     Serial.print("Resistance of sensor: ");
     Serial.print(sensor.getResistance()); // Prints resistance of rain sensor
     Serial.println(" Ohms.");
+
+    Serial.print("The set threshold is: ");
+    Serial.print(sensor.getThreshold());
+    Serial.println("%");
 
     // Detect if it's raining or not
     // And print information accordingly

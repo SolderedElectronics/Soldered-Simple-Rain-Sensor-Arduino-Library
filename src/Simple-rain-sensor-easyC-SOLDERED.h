@@ -44,7 +44,7 @@ class SimpleRainSensor : public EasyC
     int pin;
     uint16_t ADC_width = 1023;
     byte data[2];
-    float threshold;
+    float threshold = 0.9;
     uint16_t resistance;
 };
 
