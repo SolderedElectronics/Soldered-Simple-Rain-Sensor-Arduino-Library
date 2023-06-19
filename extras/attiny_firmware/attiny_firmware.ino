@@ -85,65 +85,14 @@ void receiveEvent(int howMany)
         uint8_t recieved [1];
         Wire.readBytes(recieved, 1);
 
-        digitalWrite(LED_PIN, LOW);
-        delay(500);
-        digitalWrite(LED_PIN, HIGH);
-        delay(500);
-        digitalWrite(LED_PIN, LOW);
-        delay(500);
-        digitalWrite(LED_PIN, HIGH);
-        delay(500);
-        digitalWrite(LED_PIN, LOW);
-        delay(500);
-        digitalWrite(LED_PIN, HIGH);
-        delay(500);
-        digitalWrite(LED_PIN, LOW);
-        delay(500);
-        digitalWrite(LED_PIN, HIGH);
-        delay(500);
-
         // Set the LED according to what was sent
         if (recieved[0] == LED_OFF_WHEN_THRESHOLD)
         {
             ledInverted = true;
-
-            digitalWrite(LED_PIN, LOW);
-            delay(1000);
-            digitalWrite(LED_PIN, HIGH);
-            delay(1000);
-            digitalWrite(LED_PIN, LOW);
-            delay(1000);
-            digitalWrite(LED_PIN, HIGH);
-            delay(1000);
         }
         else if(recieved[0] == LED_ON_WHEN_THRESHOLD)
         {
             ledInverted = false;
-
-            digitalWrite(LED_PIN, LOW);
-            delay(50);
-            digitalWrite(LED_PIN, HIGH);
-            delay(50);
-            digitalWrite(LED_PIN, LOW);
-            delay(50);
-            digitalWrite(LED_PIN, HIGH);
-            delay(50);
-            digitalWrite(LED_PIN, LOW);
-            delay(50);
-            digitalWrite(LED_PIN, HIGH);
-            delay(50);
-            digitalWrite(LED_PIN, LOW);
-            delay(50);
-            digitalWrite(LED_PIN, HIGH);
-            delay(50);
-            digitalWrite(LED_PIN, LOW);
-            delay(50);
-            digitalWrite(LED_PIN, HIGH);
-            delay(50);
-            digitalWrite(LED_PIN, LOW);
-            delay(50);
-            digitalWrite(LED_PIN, HIGH);
-            delay(50);
         }
     }
 }
