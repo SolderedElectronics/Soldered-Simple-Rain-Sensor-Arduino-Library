@@ -125,7 +125,7 @@ bool SimpleRainSensor::isRaining()
 /**
  * @brief       Function to set threshold value to turn on the LED
  *
- * @param       byte _threshold value in %
+ * @param       float _threshold value in %
  */
 void SimpleRainSensor::setThreshold(float _threshold)
 {
@@ -138,6 +138,16 @@ void SimpleRainSensor::setThreshold(float _threshold)
     // Convert percentage threshold to raw value and send it
     uint16_t rawThreshold = _threshold * 0.01 * 1024;
     setRawThreshold(rawThreshold);
+}
+
+/**
+ * @brief       Get threshold value that was prevously set
+ *
+ * @returns     float of the threshold
+ */
+float SimpleRainSensor::getThreshold()
+{
+    return threshold;
 }
 
 
@@ -159,4 +169,25 @@ void SimpleRainSensor::setRawThreshold(uint16_t _threshold)
 
     // Send raw threshold
     sendData(rawThreshold, 2);
+}
+
+/**
+ * @brief       Invert the LED on the breakout board
+ *
+ * @param       bool ledSetting:
+ *              -True makes the LED turn off when the threshold is reached
+ *              -False will have the LED turn on only when the threshold is reached
+ */
+void SimpleRainSensor::invertLED(bool ledSetting)
+{
+    if (ledSetting)
+    {
+        const uint8_t dataToSend[1] = {LED_OFF_WHEN_THRESHOLD};
+        sendData(dataToSend, 1);
+    }
+    else
+    {
+        const uint8_t dataToSend[1] = {LED_ON_WHEN_THRESHOLD};
+        sendData(dataToSend, 1);
+    }
 }
