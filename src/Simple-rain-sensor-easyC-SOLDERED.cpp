@@ -112,7 +112,7 @@ void SimpleRainSensor::setADCWidth(uint8_t _ADC_width)
  */
 bool SimpleRainSensor::isRaining()
 {
-    if (getRawValue() < high * 0.95)
+    if (getValue() < threshold)
     {
         return 1;
     }
@@ -135,6 +135,9 @@ void SimpleRainSensor::setThreshold(float _threshold)
         return;
     }
 
+    // Store the variable
+    threshold = _threshold;
+
     // Convert percentage threshold to raw value and send it
     uint16_t rawThreshold = _threshold * 0.01 * 1024;
     setRawThreshold(rawThreshold);
@@ -143,7 +146,7 @@ void SimpleRainSensor::setThreshold(float _threshold)
 /**
  * @brief       Get threshold value that was prevously set
  *
- * @returns     float of the threshold
+ * @returns     float of the threshold (as a percentage)
  */
 float SimpleRainSensor::getThreshold()
 {
@@ -163,6 +166,9 @@ void SimpleRainSensor::setRawThreshold(uint16_t _threshold)
     {
         return;
     }
+
+    // Store the threshold as a percentage
+    threshold = _threshold / (0.01 * 1024);
 
     // Convert raw threshold value into 2 bytes for sending
     uint8_t *rawThreshold = (uint8_t *)&_threshold;
