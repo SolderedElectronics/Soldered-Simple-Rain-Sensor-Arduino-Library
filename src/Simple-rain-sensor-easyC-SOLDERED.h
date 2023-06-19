@@ -2,7 +2,7 @@
  **************************************************
  *
  * @file        Simple-rain-humidity-sensor-easyC-SOLDERED.h
- * @brief       Header file for sensor specific code.
+ * @brief       Header file for the Simple Rain Sensor by Soldered
  *
  *
  * @copyright   GNU General Public License v3.0
@@ -16,6 +16,10 @@
 #include "libs/Generic-easyC/easyC.hpp"
 #include "math.h"
 
+// Settings for the LED which
+#define LED_ON_WHEN_THRESHOLD  0xFF
+#define LED_OFF_WHEN_THRESHOLD 0x00
+
 class SimpleRainSensor : public EasyC
 {
   public:
@@ -28,7 +32,9 @@ class SimpleRainSensor : public EasyC
     void setADCWidth(uint8_t);
     bool isRaining();
     void setThreshold(float);
+    float getThreshold();
     void setRawThreshold(uint16_t);
+    void invertLED(bool);
 
   protected:
     void initializeNative();
